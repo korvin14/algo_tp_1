@@ -7,14 +7,24 @@
  *  Description:
  */
 
-
 #include <iostream>
 
 using std::cout;
 using std::cin;
-using std::endl;
+
+int countTrailingZeroes(int factorialNumber);
 
 int main(void) {
-  cout << "Hello bitches" << endl;
+  int inputNumber;
+  cin >> inputNumber;
+  cout << countTrailingZeroes(inputNumber);
   return 0;
+}
+
+int countTrailingZeroes(int factorialNumber) {
+  int trailingZeroesCount = 0;
+  for (int power5 = 5; power5 <= factorialNumber; power5*=5) {
+    trailingZeroesCount += factorialNumber/power5;
+  }
+  return trailingZeroesCount;
 }
